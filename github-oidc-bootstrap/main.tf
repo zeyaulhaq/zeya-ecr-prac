@@ -31,13 +31,14 @@ resource "aws_iam_role" "github_actions_role" {
         Condition = {
           StringEquals = {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-            "token.actions.githubusercontent.com:sub" = "repo:${var.github_repository_username}/${var.github_repository_name}:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:sub" = "repo:zeyaulhaq/zeya-flask-ecr-prac:ref:refs/heads/main"
           }
         }
       }
     ]
   })
 }
+
 
 # --------------------------------------------------
 # 2. IAM Policy for ECR Push
