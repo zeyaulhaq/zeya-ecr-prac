@@ -10,7 +10,7 @@ permissions:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: zeya-flask-ecr-prac
+  ECR_REPOSITORY: zeya-ecr
 
 jobs:
   build-and-push:

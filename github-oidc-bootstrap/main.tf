@@ -33,7 +33,7 @@ resource "aws_iam_role" "github_actions_role" {
           StringLike = {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
             # The wildcard (*) allows the new GitHub @ID format and dynamic branches to match
-            "token.actions.githubusercontent.com:sub" = "repo:zeyaulhaq*/zeya-flask-ecr-prac*:*"
+            "token.actions.githubusercontent.com:sub" = "repo:zeyaulhaq*/zeya-ecr*:*"
           }
         }
       }
