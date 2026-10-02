@@ -29,9 +29,11 @@ resource "aws_iam_role" "github_actions_role" {
         }
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
-          StringEquals = {
+          # Swapped StringEquals to StringLike to allow wildcard matching
+          StringLike = {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-            "token.actions.githubusercontent.com:sub" = "repo:zeyaulhaq/zeya-flask-ecr-prac:ref:refs/heads/main"
+            # The wildcard (*) allows the new GitHub @ID format and dynamic branches to match
+            "token.actions.githubusercontent.com:sub" = "repo:zeyaulhaq*/zeya-flask-ecr-prac*:*"
           }
         }
       }
